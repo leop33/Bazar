@@ -21,7 +21,7 @@
                             </div>
                             <div class="form interesado">
                                 {% for field in form %}
-                                    <div style="grid-area: f{{ forloop.counter }}">{{ forloop.counter }}
+                                    <div style="grid-area: f{{ forloop.counter }}">
                                         {{ field.label }}
                                         {{ field|add_class:"form-control form-control-sm " }}
                                     </div>

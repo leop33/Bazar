@@ -1,7 +1,8 @@
 {% load bootstrap5 %}
 {% load static %}
 {% block head %}
-{% load bootstrap5 %}}
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -41,15 +42,11 @@
       <div class="row">
         <div class="col-6 col-md-8 col-lg-7">
           <div class="row text-center">
-            <div class="col-sm-6 col-12">
-              <ul class="list-unstyled">
-                <li class="btn-link">
-                    <a href="https://www.instagram.com/_sakura.bazar_/" target="_blank"
-                       class="text-dark me-4 text-decoration-none instagram">
-                        {% bs_icon 'instagram' size='2em' %}
+            <div class="m-auto">
+                    <a href="https://www.instagram.com/_sakura.bazar_/" >
+                        <i  style="margin-right: 1em; color: #EEEEEE;" class={% bs_icon 'instagram' size='2em' %}
+                        </i>
                     </a>Siguenos en Instagram
-                </li>
-              </ul>
             </div>
           </div>
         </div>

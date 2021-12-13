@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_tables2',
     'bootstrap5',
+    'django_bootstrap_icons',
 ]
 
 MIDDLEWARE = [
