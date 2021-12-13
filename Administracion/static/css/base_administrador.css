@@ -1,0 +1,62 @@
+nav button::after {
+    contain: none;
+}
+
+nav button::before {
+    contain: none;
+}
+
+ul.list-group a {
+    text-decoration: none;
+}
+
+ul.dropdown-menu > * {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+ul.dropdown-menu > *:last-child {
+    border-bottom: none;
+}
+
+tbody > tr {
+    cursor: pointer;
+    transition-duration: var(--animation-duration);
+    animation-duration: var(--animation-duration);
+}
+
+tbody > tr > td:last-child {
+    padding: 0.3rem !important;
+}
+
+tbody > tr.active {
+    background-color: var(--bs-primary);
+}
+
+tbody > tr.active * {
+    color: var(--bs-light);
+    opacity: 100% !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pagination a.active {
+    opacity: 80% !important;
+}
+
+td > img {
+    width: 100%;
+    object-fit: cover;
+    height: 100px;
+    opacity: 80% !important;
+}
+
+.mxc-3 {
+    margin-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: calc(var(--bs-gutter-x) * .5);
+}
+
+div.btn-group > button {
+    margin-left: 0.19rem !important;
+}

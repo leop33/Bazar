@@ -1,0 +1,36 @@
+{% extends 'Cliente/base.html' %}
+{% load static %}
+
+{% block main %}
+
+    <main class="d-flex p-4">
+
+        <div class="card m-auto w-75 shadow">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../{{  item.imagen }}" class="img-fluid rounded-start h-100"
+                         alt="{{ item.imagen }}" style="object-fit: cover">
+                </div>
+                <div class="col-md-8 d-flex">
+                    <div class="card-body m-auto">
+                        <h5 class="card-title text-center border-bottom border-primary fs-2 fw-lighter">{{ item.nombre }}</h5>
+                        <p class="card-text fs-6" style="margin-bottom: 54px;">{{ item.descripcion }}</p>
+                        <a href="{% url 'Interesado' item.pk %}"
+                           class="btn btn-dark position-absolute bottom-0 end-0 m-3">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if success %}
+            <div class="alert alert-success alert-dismissible fade show position-fixed mt-3 start-0 shadow" role="alert"
+                 style="top: 80px; border-radius: 0 1rem 1rem 0;">
+                <h4 class="alert-heading">Correcto!</h4>
+                <p>Se mando su solicitud, nos pondremos en contacto en la brevedad</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+
+    </main>
+
+{% endblock %}

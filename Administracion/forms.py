@@ -1,20 +1,13 @@
 from django import forms
-from django.forms import ModelForm
-import Administracion.models as models
 
-class ProductoForm(ModelForm):
-    tipo = forms.ModelChoiceField(queryset = models.TipoProd.objects.all())
+from Cliente import models
 
-    def __init__(self, *args, **kwargs):
-        super(ProductoForm, self).__init__(*args, **kwargs)
-
+class ProductosForm(forms.ModelForm):
     class Meta:
-        model= models.Producto
-        fields = ['descripcion', 'nombre', 'imagen', 'tipo']
-
+        model = models.Producto
+        fields = "__all__"
         widgets = {
-            'descripcion': forms.TextInput(), 'nombre': forms.TextInput(),
-            'imagen': forms.TextInput()
+            "descripcion": forms.Textarea(attrs={'rows': 3}),
         }
 
 

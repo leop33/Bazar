@@ -1,0 +1,30 @@
+{% extends 'Administracion/base_admin.html' %}
+{% load static %}
+
+{% block main %}
+
+    <main class="d-flex p-4">
+
+        <div class="card m-auto w-75 shadow">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <img src="{% static 'Main.jpg' %}" class="img-fluid rounded-start w-100" alt="Main"
+                         style="height: 75vh; object-fit: cover;">
+                </div>
+                <div class="col-md-6">
+                    <div class="container p-4 d-flex h-100">
+                        <div class="container m-auto">
+                            <div class="row mb-3">
+                                <h2 class="text-center border-bottom border-primary fw-lighter pb-2">
+                                    Bienvenido, {{ user }}</h2>
+                            </div>
+                            <a href="{% url 'AdminProducto' %}" class="btn btn-success">Editar Productos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock %}

@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'Administracion.apps.AdministracionConfig',
     'Cliente.apps.ClienteConfig',
     'widget_tweaks',
+    'django_tables2',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -126,16 +128,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = reverse_lazy('index')
-LOGIN_URL = reverse_lazy('login')
-LOGOUT_REDIRECT_URL = reverse_lazy('login')
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'Administracion.Usuario'
+
+LOGIN_REDIRECT_URL = reverse_lazy('MainAdmin')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')

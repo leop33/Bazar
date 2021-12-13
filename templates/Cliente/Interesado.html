@@ -1,0 +1,54 @@
+{% extends 'Cliente/base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% load widget_tweaks %}
+{% block main %}
+	  <main class="d-flex p-4">
+
+        <div class="card m-auto w-90 shadow">
+            <div class="row g-0">
+                <div class="col-md-4 bg-white border-secondary border-end">
+                    <img src="../{{ item.imagen }}" class="img-fluid rounded-start h-100" alt="{{ item.imagen }}"
+                         style="object-fit: contain">
+                </div>
+                <div class="col-md-8">
+                    <form method="post" class="container p-4">
+                        <div class="container p-2">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <h2 class="text-center border-bottom border-primary fw-lighter my-4 pb-2">¿Te interesa
+                                    el Producto?</h2>
+                            </div>
+                            <div class="form interesado">
+                                {% for field in form %}
+                                    <div style="grid-area: f{{ forloop.counter }}">{{ forloop.counter }}
+                                        {{ field.label }}
+                                        {{ field|add_class:"form-control form-control-sm " }}
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex mt-4">
+                                <button class="btn btn-dark m-auto">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% if not success is None and not success %}
+            <div class="alert alert-warning alert-dismissible fade show position-fixed mt-3 start-0 shadow" role="alert"
+                 style="top: 80px; border-radius: 0 1rem 1rem 0;">
+                <h4 class="alert-heading">Cuidado!</h4>
+                <p>Los siguiente datos no son validos:</p>
+                <hr>
+                {% for msg in msgs %}
+                    <li>{{ msg }}</li>
+                {% endfor %}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+
+    </main>
+{% endblock %}
