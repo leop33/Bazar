@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'Bazar.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
+DATETIME_FORMAT = '%d-%m-%Y %H:%M:%S'
+USE_L10N = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

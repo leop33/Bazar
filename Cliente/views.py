@@ -87,9 +87,9 @@ class InteresadoView(View):
         if status:
             new_cliente = form.save()
             item = m.Producto.objects.get(pk=pk)
-            new_interesado_producto = m.InteresadosProductos(
-                id_cliente=new_cliente,
-                id_producto=item
+            new_interesado_producto = m.RegistroProd(
+                idCliente=new_cliente,
+                idProducto=item
             )
             new_interesado_producto.save()
             print(request.method == 'POST')

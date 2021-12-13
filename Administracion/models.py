@@ -28,4 +28,4 @@ class Usuario(AbstractBaseUser):
     objects = UsuarioManager()
 
     def __str__(self):
-        return f'{self.name.capitalize()} {self.apellido2.capitalize()} {self.apellido1.capitalize()}'
+        return f'{self.name.capitalize()} {self.apellido1.capitalize()} {self.apellido2.capitalize()}'

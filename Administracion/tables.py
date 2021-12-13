@@ -18,3 +18,10 @@ class ProductosTable(tables.Table):
         row_attrs = {
             "row-id": lambda record: record.pk
         }
+class ClientesTable(tables.Table):
+    class Meta:
+        model = models.RegistroProd
+        exclude = ("id",)
+        row_attrs = {
+            "row-id": lambda record: record.pk
+        }

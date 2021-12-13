@@ -32,16 +32,6 @@
                     <h2 class="text-center border-bottom border-primary fw-lighter mxc-3 pb-2 position-relative">{{ title }}
                         <div class="btn-group position-absolute end-0 top-0 bottom-0 m-1" role="group"
                              aria-label="Basic example">
-                            <button id="add" type="button" class="btn btn-dark">
-                                <a class="text-decoration-none text-light"
-                                   href="{% url 'AdminProducto' %}">
-                                    Añadir
-                                </a>
-                            </button>
-                            <button id="upd" type="button" class="btn btn-dark" {% if not active %}
-                                    disabled {% endif %}>
-                                <a class="text-decoration-none text-light" href="#">Modificar</a>
-                            </button>
                             <button id="del" type="button" class="btn btn-dark" {% if not active %}
                                     disabled {% endif %}>
                                 <a class="text-decoration-none text-light" href="#">Eliminar</a>
@@ -56,37 +46,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow pt-1">
-                        <form method="post" enctype="multipart/form-data" class="container-fluid">
-                            {% csrf_token %}
-                            <div class="row mb-3">
-                                <h2 class="text-center border-bottom border-primary fw-lighter pb-2">
-                                    Nuevos {{ title }}</h2>
-                            </div>
-                            {% for field in form %}
-                            <div class="mb-3">
-                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                                {{ field|add_class:"form-control" }}
-                            </div>
-                            {% endfor %}
-
-                        <div class="d-flex my-4">
-                            <button type="submit" class="btn btn-dark m-auto text-decoration-none">Enviar</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="{% static 'js/form.js' %}"></script>
-        {% if active %}
-            <script type="text/javascript">
-                document.querySelector('tr[row-id="{{ active }}"]').classList.add('active')
-            </script>
-        {% endif %}
-
     </main>
 
 {% endblock %}

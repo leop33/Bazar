@@ -13,6 +13,12 @@ def table_productos(request):
     table.paginate(page=request.GET.get("page", 1), per_page=per_page)
     return table
 
+def table_clientes(request):
+    table = tables.ClientesTable(data=models.RegistroProd.objects.all())
+    RequestConfig(request).configure(table)
+    table.paginate(page=request.GET.get("page", 1), per_page=per_page)
+    return table
+
 class Main(View):
     def get(self,request):
         context = {
@@ -84,3 +90,12 @@ class EditProductosView(View):
             })
         except models.Producto.DoesNotExist:
             return redirect('AdminProducto')
+
+class ClientesView(View):
+    title = 'Clientes'
+
+    def get(self, request):
+        return render(request, 'Administracion/Clientes.html', {
+            "title": self.title,
+            "table": table_clientes(request),
+        })

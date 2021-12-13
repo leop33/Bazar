@@ -9,5 +9,5 @@ urlpatterns = [
     path('Main/', login_required(views.Main.as_view()), name = 'MainAdmin'),
     path('Producto/', login_required(views.AddProductoView.as_view()), name = 'AdminProducto'),
     path('Producto/<method>/<pk>', login_required(views.EditProductosView.as_view())),
-
+    path('Clientes/',  login_required(views.ClientesView.as_view()), name="AdminClientes"),
 ]
